@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
-import AvatarListContainer from './components/AvatarListContainer'
-import AvatarInputField from './components/AvatarInputField'
+import AvatarListContainer from './components/CharacterListContainer'
 import NewCharacterContainer from './components/NewCharacterContainer'
 import './App.css';
 
@@ -10,18 +9,16 @@ const App = () => {
   
   const [ characterList, setCharacterList ] = useState([])
 
-console.log(characterList)
+  console.log(characterList)
 
   return (
 
     <CharacterListContext.Provider value={[characterList, setCharacterList]}>
-
         <div>
           initiative-tracker-1.0
           <NewCharacterContainer characterList={characterList} setCharacterList={setCharacterList}/>
           <AvatarListContainer></AvatarListContainer>
         </div>
-
     </CharacterListContext.Provider>
   )
 
