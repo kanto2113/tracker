@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import AvatarListContainer from './components/CharacterListContainer'
+import CharacterListContainer from './components/CharacterListContainer'
 import NewCharacterContainer from './components/NewCharacterContainer'
 import './App.css';
 
@@ -7,9 +7,23 @@ export const CharacterListContext = React.createContext()
 
 const App = () => {
   
-  const [ characterList, setCharacterList ] = useState([])
 
-  console.log(characterList)
+  const defaultCharacterArray = [{
+    characterName: "Dyce",
+    initiative: 0,
+    activeTurn: false,
+    avatarURL: "https://i.pinimg.com/originals/7e/85/17/7e8517acd27a3d13a18704708892afc9.png"
+  },
+  {
+    characterName: "Elad",
+    initiative: 0,
+    activeTurn: true,
+    avatarURL: "https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/369/420/618/636272705936709430.png"
+  }
+  ]
+
+  const [ characterList, setCharacterList ] = useState(defaultCharacterArray)
+
 
   return (
 
@@ -17,7 +31,7 @@ const App = () => {
         <div>
           initiative-tracker-1.0
           <NewCharacterContainer characterList={characterList} setCharacterList={setCharacterList}/>
-          <AvatarListContainer></AvatarListContainer>
+          <CharacterListContainer></CharacterListContainer>
         </div>
     </CharacterListContext.Provider>
   )
@@ -28,15 +42,4 @@ const App = () => {
 
 export default App;
 
-/*
-
- 
-    characterName: 'Dyce',
-    initiative: 0,
-    avatarURL: 'https://i.pinimg.com/originals/be/1b/a3/be1ba3364bf0b82e3a8acbb0d3322f87.jpg',
-    activeTurn: true,
-
-
-1. in order for a function to access a variable, it is either passed it as a parameter or accessable via scope
-2. ES6 - let cloneCharacter = new Object(newCharacter)
-*/
+//TODO CSS

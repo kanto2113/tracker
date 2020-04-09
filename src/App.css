@@ -2,7 +2,31 @@
   text-align: center;
 }
 
+
+
+/* CHARACTER LIST CONTAINER */
+
+.character-list-container {
+  display: flex;
+  position: absolute;
+  bottom: 200px;
+}
+
+
+
+/* CHARACTER CARD CONTAINER */
+
+.character-card-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.character-card-name {
+  text-align: center;
+}
+
 .avatar-image {
   height: 300px;
   width: 300px;
 }
+

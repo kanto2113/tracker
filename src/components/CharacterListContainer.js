@@ -10,10 +10,10 @@ const CharacterListContainer = () => {
 
     return (
 
-        <div>
+        <div className="character-list-container">
             {characterList.map((character) => {
                 return(
-                   <CharacterCardContainer character={character} />
+                   <CharacterCardContainer key={character.characterName} character={character} />
                 )
             })}
         </div>
