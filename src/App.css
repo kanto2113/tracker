@@ -1,8 +1,12 @@
-.App {
-  text-align: center;
+.app-container {
+  box-sizing: border-box;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, .7) 0%, rgba(0, 0, 0, .7) 100%), url(https://images.squarespace-cdn.com/content/51b3dc8ee4b051b96ceb10de/1558559772009-V52JMOG925K2IGOA3ROA/ghosts_saltmarsh.jpg?format=1500w&content-type=image%2Fjpeg);
+  height: 900px;
 }
 
-
+.button {
+  border-radius: 4px;
+}
 
 /* CHARACTER LIST CONTAINER */
 
@@ -19,14 +23,49 @@
 .character-card-container {
   display: flex;
   flex-direction: column;
+  position: relative;
+  transition: .3s ease-in-out;
 }
 
 .character-card-name {
   text-align: center;
+  margin: 25px 0 0 0
 }
 
 .avatar-image {
   height: 300px;
-  width: 300px;
+}
+
+.initiative-input-field {
+  visibility: hidden;
+}
+
+.end-turn-button-container{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.end-turn-button {
+  background-color: blue;
+  color: greenyellow;
+  width: 75px;
+  text-align: center;
+  border-radius: 4px;
+  height: 20px;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+}
+
+.end-turn-button:hover {
+  background-color: cyan;
+  color: red;
+  
+}
+
+.delete-character-button {
+  background-color: red;
+  width: 150px;
+  margin: 50px;
 }
 
