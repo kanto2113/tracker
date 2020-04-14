@@ -9,7 +9,6 @@ const CharacterListContainer = () => {
     const [ characterList, setCharacterList ] = useContext(CharacterListContext)
 
     return (
-
         <div className="character-list-container">
             {characterList.map((character) => {
                 return(
@@ -17,7 +16,6 @@ const CharacterListContainer = () => {
                 )
             })}
         </div>
-        
     )
 }
 

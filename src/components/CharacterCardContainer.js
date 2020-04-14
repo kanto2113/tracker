@@ -52,16 +52,29 @@ const CharacterCardContainer = (props) => {
         setCharacterList(cloneCharacterList)
     }
 
-    
+    let backgroundImage = `linear-gradient(to bottom right, rgba(0, 0, 0, .2) 0%, rgba(0, 0, 0, .4) 35%, rgba(0, 0, 0, .7) 100%), url(${props.character.avatarURL})`
+
+    let containerStyleObj =  props.character.activeTurn ? {backgroundImage: backgroundImage, border: "3px solid gold", margin: "35px 0px 20px 30px"} : {backgroundImage: backgroundImage}
+
     return (
-        <div id={`card for ${props.character.characterName}`} className="character-card-container">
-            {props.character.activeTurn && <TurnSelector />}
-            <div style={props.character.activeTurn ? {color: "gold"} : { color: "blue" }}  className="character-card-name">
+        <div style={containerStyleObj} id={`card for ${props.character.characterName}`} className="character-card-container">
+            <div className="character-card-name">
                 {props.character.characterName}
             </div>
-            <img className='avatar-image' src={props.character.avatarURL} />
-            <div style={{display: "flex", justifyContent: "center"}} >
-                <div>
+            <div className="character-card-right-row">
+                <button
+                    className="delete-character-button button"
+                    onClick={deleteCharacterHandler}
+                >
+                    X
+                </button>
+                {props.character.activeTurn && <TurnSelector />}
+                <div className="initiative-container">
+                    I
+                </div>
+            </div>
+            {/* <div className="character-card-bottom-row" >
+                <div className="initiative-value">
                     {props.character.initiative}
                 </div>
                 <button
@@ -76,13 +89,8 @@ const CharacterCardContainer = (props) => {
                     onChange={(e) => {initiativeValueHandler(e)}}
                     value={props.character.intiative}
                 />
-            </div>
-            <button
-                className="delete-character-button button"
-                onClick={deleteCharacterHandler}
-            >
-                Delete Character
-            </button>
+            </div> */}
+            
         </div>
     )
 }
