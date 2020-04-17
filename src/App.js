@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CharacterListContainer from './components/CharacterListContainer'
 import NewCharacterContainer from './components/NewCharacterContainer'
+import XPTracker from './components/XPTracker'
 import './App.css';
 
 export const CharacterListContext = React.createContext()
@@ -28,7 +29,12 @@ const defaultCharacterArray = [{
   initiative: 0,
   activeTurn: false,
   avatarURL: "https://p1.hiclipart.com/preview/349/53/139/elf-dungeons-dragons-high-elf-ranger-d20-system-fantasy-warrior-roleplaying-game-png-clipart.jpg"
-}
+},{
+  characterName: "Toby Probst",
+  initiative: 0,
+  activeTurn: false,
+  avatarURL: "https://i.redd.it/ug8ongxomi731.jpg"
+},
 ]
 
 const App = () => {
@@ -43,6 +49,7 @@ const App = () => {
         <div className="app-container">
           initiative-tracker-1.0
           <NewCharacterContainer characterList={characterList} setCharacterList={setCharacterList}/>
+          <XPTracker />
           <CharacterListContainer></CharacterListContainer>
         </div>
     </CharacterListContext.Provider>
