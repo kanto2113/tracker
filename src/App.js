@@ -49,7 +49,8 @@ const App = () => {
             <div>
               <NewCharacterContainer characterList={characterList} setCharacterList={setCharacterList}/>
             </div>
-            <div>
+            <div
+              style={{margin:"0 20px"}}>
               <XPTracker />
             </div>
           </div>

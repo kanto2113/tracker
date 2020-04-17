@@ -1,6 +1,6 @@
 .app-container {
   box-sizing: border-box;
-  background: linear-gradient(108.41deg, rgba(255, 255, 255, 0.48) 0%, rgba(163, 20, 20, 0) 100%), #85E27C;  background-size: auto;
+  background: linear-gradient(108.41deg, #85E27C 0%, rgba(255, 255, 255, 0.74) 100%), #85E27C; 
   height: 1500px;
   font-family:  Didot, Didot LT STD, Hoefler Text, Garamond, Times New Roman, serif;
 }
@@ -16,6 +16,7 @@
 
 .app-header {
   display: flex;
+  justify-content: space-between;
   position: relative;
   top: 10px;
   left: 10px;

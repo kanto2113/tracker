@@ -36,7 +36,7 @@ const XPTracker = () => {
                 onChange={(e)=>{xpInputHandler(e)}}
                 value={gainedXP}
             />
-            <button
+            <button 
                 className="button"
                 onClick={xpMathHandler}
             >

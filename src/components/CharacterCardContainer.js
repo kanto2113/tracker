@@ -73,6 +73,7 @@ const CharacterCardContainer = (props) => {
                     I
                 </div>
             </div>
+
             {/* <div className="character-card-bottom-row" >
                 <div className="initiative-value">
                     {props.character.initiative}
