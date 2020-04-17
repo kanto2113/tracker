@@ -10,20 +10,31 @@ const XPTracker = () => {
     const xpInputHandler = (e) => {
         setGainedXP(e.target.value)
     }
-    console.log(gainedXP)
+
+    const xpMathHandler = () => {
+        setxp(parseInt(xp) + parseInt(gainedXP))
+        setGainedXP(0)
+    }
+
+
+    console.log('xp', xp)
 
     return (
 
-        <div>
+        <div className='xpTracker'>
+
             <input 
                 type="number"
                 placeholder='XP Gained'
                 onChange={(e)=>{xpInputHandler(e)}}
                 value={gainedXP}
             />
-            <button>
-                
+            <button
+                onClick={xpMathHandler}
+            >
+                Add XP
             </button>
+            {xp}
         </div>
 
     )
