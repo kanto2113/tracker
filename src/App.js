@@ -39,17 +39,20 @@ const defaultCharacterArray = [{
 
 const App = () => {
   
-
   const [ characterList, setCharacterList ] = useState(defaultCharacterArray)
-
 
   return (
 
     <CharacterListContext.Provider value={[characterList, setCharacterList]}>
         <div className="app-container">
-          initiative-tracker-1.0
-          <NewCharacterContainer characterList={characterList} setCharacterList={setCharacterList}/>
-          <XPTracker />
+          <div className='app-header'>
+            <div>
+              <NewCharacterContainer characterList={characterList} setCharacterList={setCharacterList}/>
+            </div>
+            <div>
+              <XPTracker />
+            </div>
+          </div>
           <CharacterListContainer></CharacterListContainer>
         </div>
     </CharacterListContext.Provider>
@@ -57,8 +60,4 @@ const App = () => {
 
 }
 
-
-
 export default App;
-
-//TODO CSS

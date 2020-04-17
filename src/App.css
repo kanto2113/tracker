@@ -1,12 +1,27 @@
 .app-container {
   box-sizing: border-box;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, .7) 0%, rgba(0, 0, 0, .7) 100%), url(https://images.squarespace-cdn.com/content/51b3dc8ee4b051b96ceb10de/1558559772009-V52JMOG925K2IGOA3ROA/ghosts_saltmarsh.jpg?format=1500w&content-type=image%2Fjpeg);
-  height: 900px;
+  background: linear-gradient(108.41deg, rgba(255, 255, 255, 0.48) 0%, rgba(163, 20, 20, 0) 100%), #85E27C;  background-size: auto;
+  height: 1500px;
+  font-family:  Didot, Didot LT STD, Hoefler Text, Garamond, Times New Roman, serif;
 }
 
 .button {
   border-radius: 4px;
+  cursor: pointer;
+
 }
+
+
+/* HEADER */
+
+.app-header {
+  display: flex;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  font-weight: 600;
+}
+
 
 /* CHARACTER LIST CONTAINER */
 
@@ -15,6 +30,7 @@
   flex-direction: column;
   position: absolute;
   top: 250px;
+  left: margin
 
 }
 
@@ -25,7 +41,7 @@
   display: flex;
   position: relative;
   transition: .3s ease-in-out;
-  margin: 10px 0 0 0;
+  margin: 15px 0 0 0;
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -46,10 +62,8 @@
 
 .character-card-name {
   text-align: center;
-  color: pink;
+  color: #2A9D20;
 }
-
-
 
 .end-turn-button-container{
   position: absolute;
@@ -112,10 +126,4 @@
 
 .initiative-value {
   color: greenyellow;
-}
-
-/* XP TRACKER */
-
-.xpTracker {
-  color: white;
 }

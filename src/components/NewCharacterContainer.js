@@ -8,7 +8,6 @@ const NewCharacterContainer = (props) => {
         avatarURL: '', 
         activeTurn: false,
     })
-
    
     const characterNameInputHandler = (e) => {
         
@@ -44,7 +43,7 @@ const NewCharacterContainer = (props) => {
             <input 
                 value = {newCharacter.characterName}
                 onChange = {(e) => {characterNameInputHandler(e)}}
-                placeholder="character name"
+                placeholder="Character Name"
             />
             <div>
                 Character Avatar URL
@@ -52,9 +51,13 @@ const NewCharacterContainer = (props) => {
             <input 
                 value={newCharacter.avatarURL}
                 onChange={(e) => {characterAvatarURLInputHandler(e)}}
-                placeholder="avatar URL"
+                placeholder="Avatar URL"
             />
-            <button onClick = {createNewCharacterButton}> 
+            <br></br>
+            <button 
+                className="button"
+                onClick = {createNewCharacterButton}
+            > 
                 Create Character
             </button>
         </div>

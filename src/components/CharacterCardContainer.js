@@ -54,7 +54,7 @@ const CharacterCardContainer = (props) => {
 
     let backgroundImage = `linear-gradient(to bottom right, rgba(0, 0, 0, .2) 0%, rgba(0, 0, 0, .4) 35%, rgba(0, 0, 0, .7) 100%), url(${props.character.avatarURL})`
 
-    let containerStyleObj =  props.character.activeTurn ? {backgroundImage: backgroundImage, border: "3px solid gold", margin: "35px 0px 20px 30px"} : {backgroundImage: backgroundImage}
+    let containerStyleObj =  props.character.activeTurn ? {backgroundImage: backgroundImage, border: "3px solid gold", margin: "45px 0px 20px 30px", boxShadow: "10px 10px 30px #10570A, 5px 5px 20px #10570A, -10px -10px 30px rgba(255, 255, 255, 0.25), -5px -5px 20px #FFFFFF"} : {backgroundImage: backgroundImage}
 
     return (
         <div style={containerStyleObj} id={`card for ${props.character.characterName}`} className="character-card-container">
