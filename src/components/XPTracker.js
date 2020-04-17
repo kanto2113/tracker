@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const XPTracker = () => {
 
-    const [ xp, setxp ] = useState(50000)
+    const [ xp, setxp ] = useState(54287)
 
     const [ gainedXP, setGainedXP ] = useState(0)
 
