@@ -1,8 +1,10 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext, useRef } from 'react'
 import TurnSelector from './TurnSelector'
 import { CharacterListContext } from '../App'
 
 const CharacterCardContainer = (props) => {
+
+    const inputRef = useRef(null)
     
     const [ characterList, setCharacterList ] = useContext(CharacterListContext)
 
@@ -56,6 +58,19 @@ const CharacterCardContainer = (props) => {
 
     let containerStyleObj =  props.character.activeTurn ? {backgroundImage: backgroundImage, border: "3px solid gold", margin: "45px 0px 20px 30px", boxShadow: "10px 10px 30px #10570A, 5px 5px 20px #10570A, -10px -10px 30px rgba(255, 255, 255, 0.25), -5px -5px 20px #FFFFFF"} : {backgroundImage: backgroundImage}
 
+    const clickAwayListener = (e) => {
+        if(e){
+ //contine here 
+        }
+
+
+        window.removeEventListener("click", clickAwayListener)
+    }
+
+    const createListener = () => {
+        window.addEventListener("click", clickAwayListener)
+    }
+ 
     return (
         <div style={containerStyleObj} id={`card for ${props.character.characterName}`} className="character-card-container">
             <div className="character-card-name">
@@ -74,7 +89,7 @@ const CharacterCardContainer = (props) => {
                 </div>
             </div>
 
-            {/* <div className="character-card-bottom-row" >
+            <div className="character-card-bottom-row" >
                 <div className="initiative-value">
                     {props.character.initiative}
                 </div>
@@ -84,13 +99,15 @@ const CharacterCardContainer = (props) => {
                     Change Initiative
                 </button>
                 <input
-                    className="initiative-input-field"
+                    className="initiative-value"
                     id={`input for ${props.character.characterName}`} 
                     placeholder="initiative value"
                     onChange={(e) => {initiativeValueHandler(e)}}
                     value={props.character.intiative}
+                    onFocus={createListener}
+                    ref={inputRef}  
                 />
-            </div> */}
+            </div>
             
         </div>
     )
