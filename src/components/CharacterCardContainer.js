@@ -74,7 +74,7 @@ const CharacterCardContainer = (props) => {
                 </div>
             </div>
 
-            {/* <div className="character-card-bottom-row" >
+            <div className="character-card-bottom-row" >
                 <div className="initiative-value">
                     {props.character.initiative}
                 </div>
@@ -90,7 +90,7 @@ const CharacterCardContainer = (props) => {
                     onChange={(e) => {initiativeValueHandler(e)}}
                     value={props.character.intiative}
                 />
-            </div> */}
+            </div>
             
         </div>
     )

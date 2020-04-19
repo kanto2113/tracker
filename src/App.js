@@ -16,7 +16,7 @@ const defaultCharacterArray = [{
   characterName: "Elad",
   initiative: 0,
   activeTurn: false,
-  avatarURL: "https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/369/420/618/636272705936709430.png"
+  avatarURL: "https://i1.sndcdn.com/avatars-jZ8wvGcGz6wqyfRj-FmQSxA-t500x500.jpg"
 },
 {
   characterName: "Vashti",
