@@ -1,12 +1,17 @@
-import React, { useEffect, useContext, useRef } from 'react'
+import React, { useEffect, useContext, useRef, useState } from 'react'
 import TurnSelector from './TurnSelector'
 import { CharacterListContext } from '../App'
 
 const CharacterCardContainer = (props) => {
 
     const inputRef = useRef(null)
+
+    const [ newInitValue, setNewInitValue ] = useState(props.character.initiative)
     
     const [ characterList, setCharacterList ] = useContext(CharacterListContext)
+
+    let initValueRef = useRef(null)
+    initValueRef.current = newInitValue
 
     useEffect(() => {
         if(props.character.activeTurn){
@@ -27,21 +32,7 @@ const CharacterCardContainer = (props) => {
 
     const initiativeValueHandler = (e) => {
 
-        let cloneCharacterList = [...characterList]
-
-        cloneCharacterList.forEach((character) => {
-
-            if(character.characterName == props.character.characterName){
-                character.initiative = e.target.value
-            }
-
-            character.activeTurn = false
-
-        })
-
-        cloneCharacterList.sort((characterA, characterB) =>  characterB.initiative - characterA.initiative)
-        cloneCharacterList[0].activeTurn = true
-        setCharacterList(cloneCharacterList)
+        setNewInitValue(e.target.value)
 
     }
 
@@ -59,16 +50,40 @@ const CharacterCardContainer = (props) => {
     let containerStyleObj =  props.character.activeTurn ? {backgroundImage: backgroundImage, border: "3px solid gold", margin: "45px 0px 20px 30px", boxShadow: "10px 10px 30px #10570A, 5px 5px 20px #10570A, -10px -10px 30px rgba(255, 255, 255, 0.25), -5px -5px 20px #FFFFFF"} : {backgroundImage: backgroundImage}
 
     const clickAwayListener = (e) => {
-        if(e){
- //contine here 
-        }
 
+        const clickedElement = e.target
+        if(inputRef.current){
+            console.log(inputRef.current)
+            if(clickedElement == inputRef.current){
+                return;
+            }           
+            console.log("click outside")
+            characterList.forEach((charObj) => {
+                if(charObj.characterName == props.character.characterName){
+                    console.log("new init", newInitValue)
+                    console.log("ref init value", initValueRef)
+                    charObj.initiative = initValueRef.current
+                    console.log("found character", charObj)
+                }
+                
+            })
+
+            characterList.forEach((character)=>{
+                character.activeTurn = false
+            })
+            characterList.sort((characterA, characterB) =>  characterB.initiative - characterA.initiative)
+            characterList[0].activeTurn = true
+            setCharacterList([...characterList])
+        }
 
         window.removeEventListener("click", clickAwayListener)
     }
 
+    
+
     const createListener = () => {
         window.addEventListener("click", clickAwayListener)
+        console.log("i have focus")
     }
  
     return (
@@ -85,7 +100,7 @@ const CharacterCardContainer = (props) => {
                 </button>
                 {props.character.activeTurn && <TurnSelector />}
                 <div className="initiative-container">
-                    I
+                    {props.character.initiative}
                 </div>
             </div>
 
@@ -103,9 +118,9 @@ const CharacterCardContainer = (props) => {
                     id={`input for ${props.character.characterName}`} 
                     placeholder="initiative value"
                     onChange={(e) => {initiativeValueHandler(e)}}
-                    value={props.character.intiative}
+                    value={newInitValue}
                     onFocus={createListener}
-                    ref={inputRef}  
+                    ref={inputRef}
                 />
             </div>
             

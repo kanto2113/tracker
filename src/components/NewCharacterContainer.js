@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 
 const NewCharacterContainer = (props) => {
    
@@ -15,11 +16,11 @@ const NewCharacterContainer = (props) => {
         setNewCharacter(cloneCharacter)
     }
 
-    const createNewCharacterButton = () => {
+    const createNewCharacterButton = async () => {
 
-        let cloneCharacterList = [...props.characterList]
-        cloneCharacterList.push(newCharacter)
-        props.setCharacterList(cloneCharacterList)
+        const res = await axios.post('/api/create_character', newCharacter)
+        console.log(res && res.data)
+
         setNewCharacter({
             characterName: '',
             initiative: 0, 

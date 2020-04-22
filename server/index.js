@@ -1,8 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+require('./model/CharacterModel');
+require('./routes/CharacterRoutes');
 
-mongoose.connect("mongodb+srv://kanto2113:<password>@trackerapp-z7xx1.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });
+mongoose.connect("mongodb+srv://kanto2113:Gootoosa2@trackerapp-z7xx1.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: false });
 
 const app = express();
 
@@ -16,6 +18,8 @@ if(process.env.NODE_ENV === 'production') {
             next()
     })
 }
+
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
